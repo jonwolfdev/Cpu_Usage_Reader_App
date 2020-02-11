@@ -12,12 +12,12 @@ namespace CpuUsageReaderApp
     public class Icons : IDisposable
     {
         Icon[] _icons;
-        public Icons(string font, int fontsize, string fontstyle, string background, string foreground)
+        public Icons(string font, int fontsize, string fontstyle, string background, string foreground, int xpos1, int xpos2)
         {
             _icons = new Icon[101];
             for(int i = 0; i < _icons.Length; i++)
             {
-                _icons[i] = CreateIcon((i).ToString(), font, fontsize, fontstyle, background, foreground);
+                _icons[i] = CreateIcon((i).ToString(), font, fontsize, fontstyle, background, foreground, xpos1, xpos2);
             }
         }
         public Icon GetIcon(int number)
@@ -29,7 +29,7 @@ namespace CpuUsageReaderApp
             return _icons[0];
         }
 
-        static Icon CreateIcon(string number, string fontStr, int fontsize, string fontstyle, string backgroundStr, string foregroundStr)
+        static Icon CreateIcon(string number, string fontStr, int fontsize, string fontstyle, string backgroundStr, string foregroundStr, int xpos1, int xpos2)
         {
             FontStyle style = (FontStyle)Enum.Parse(typeof(FontStyle), fontstyle);
             Color background;
@@ -52,11 +52,11 @@ namespace CpuUsageReaderApp
                 float x;
                 if (number.Length > 1)
                 {
-                    x = -5;
+                    x = xpos2;
                 }
                 else
                 {
-                    x = 2;
+                    x = xpos1;
                 }
 
                 graphics.Clear(background);

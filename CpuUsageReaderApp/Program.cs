@@ -32,6 +32,8 @@ namespace CpuUsageReaderApp
             string fontstyle = ConfigurationManager.AppSettings.Get("FontStyle");
             string background = ConfigurationManager.AppSettings.Get("BackgroundColor");
             string foreground = ConfigurationManager.AppSettings.Get("ForegroundColor");
+            string xpositionfor1number = ConfigurationManager.AppSettings.Get("XPositionFor1Number");
+            string xpositionfor2numbers = ConfigurationManager.AppSettings.Get("XPositionFor2Numbers");
 
             ProcessPriorityClass priorityClass = (ProcessPriorityClass)Enum.Parse(typeof(ProcessPriorityClass), priority);
 
@@ -39,7 +41,7 @@ namespace CpuUsageReaderApp
                 p.PriorityClass = priorityClass;
 
             _cpu = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            _creator = new Icons(font, int.Parse(fontsize), fontstyle, background, foreground);
+            _creator = new Icons(font, int.Parse(fontsize), fontstyle, background, foreground, int.Parse(xpositionfor1number), int.Parse(xpositionfor2numbers));
             _icon = new NotifyIcon()
             {
                 Icon = _creator.GetIcon(0),
