@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CpuUsageReaderApp
@@ -22,9 +19,6 @@ namespace CpuUsageReaderApp
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
             string interval = ConfigurationManager.AppSettings.Get("Interval");
             string priority = ConfigurationManager.AppSettings.Get("Priority");
             string font = ConfigurationManager.AppSettings.Get("Font");
@@ -39,6 +33,9 @@ namespace CpuUsageReaderApp
 
             using (Process p = Process.GetCurrentProcess())
                 p.PriorityClass = priorityClass;
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
             _cpu = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             _creator = new Icons(font, int.Parse(fontsize), fontstyle, background, foreground, int.Parse(xpositionfor1number), int.Parse(xpositionfor2numbers));

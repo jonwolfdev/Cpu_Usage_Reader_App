@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CpuUsageReaderApp
@@ -15,10 +10,11 @@ namespace CpuUsageReaderApp
         public Icons(string font, int fontsize, string fontstyle, string background, string foreground, int xpos1, int xpos2)
         {
             _icons = new Icon[101];
-            for(int i = 0; i < _icons.Length; i++)
+            Parallel.For(0, _icons.Length, (i) =>
             {
+                //Safe to do multithreading because other threads are not stepping up on each other
                 _icons[i] = CreateIcon((i).ToString(), font, fontsize, fontstyle, background, foreground, xpos1, xpos2);
-            }
+            });
         }
         public Icon GetIcon(int number)
         {
