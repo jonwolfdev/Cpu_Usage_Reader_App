@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29728.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CpuUsageReaderApp", "CpuUsageReaderApp\CpuUsageReaderApp.csproj", "{D97614AF-50BD-4135-9936-E0FE34278D5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D97614AF-50BD-4135-9936-E0FE34278D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D97614AF-50BD-4135-9936-E0FE34278D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D97614AF-50BD-4135-9936-E0FE34278D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D97614AF-50BD-4135-9936-E0FE34278D5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0F481417-9606-4B23-8CC1-DA04130581B9}
+	EndGlobalSection
+EndGlobal
