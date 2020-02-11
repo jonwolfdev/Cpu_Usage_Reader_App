@@ -32,6 +32,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBoxNotice = new System.Windows.Forms.TextBox();
+            this.textBoxSettings = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -40,11 +41,9 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(352, 81);
+            this.textBox1.Size = new System.Drawing.Size(352, 95);
             this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "Made by: https://github.com/jonwolfdev\r\nProject url: https://github.com/jonwolfde" +
-    "v/Cpu_Usage_Reader_App\r\nLicense: See License file\r\n\r\n\"settings.ini\" file contain" +
-    "s several settings you can change.\r\n";
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // textBox2
             // 
@@ -60,18 +59,28 @@
             // 
             // textBoxNotice
             // 
-            this.textBoxNotice.Location = new System.Drawing.Point(12, 186);
+            this.textBoxNotice.Location = new System.Drawing.Point(12, 200);
             this.textBoxNotice.Multiline = true;
             this.textBoxNotice.Name = "textBoxNotice";
             this.textBoxNotice.ReadOnly = true;
             this.textBoxNotice.Size = new System.Drawing.Size(352, 125);
             this.textBoxNotice.TabIndex = 3;
             // 
+            // textBoxSettings
+            // 
+            this.textBoxSettings.Location = new System.Drawing.Point(12, 331);
+            this.textBoxSettings.Multiline = true;
+            this.textBoxSettings.Name = "textBoxSettings";
+            this.textBoxSettings.ReadOnly = true;
+            this.textBoxSettings.Size = new System.Drawing.Size(352, 57);
+            this.textBoxSettings.TabIndex = 4;
+            // 
             // AboutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 323);
+            this.ClientSize = new System.Drawing.Size(378, 400);
+            this.Controls.Add(this.textBoxSettings);
             this.Controls.Add(this.textBoxNotice);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -92,5 +101,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBoxNotice;
+        private System.Windows.Forms.TextBox textBoxSettings;
     }
 }

@@ -9,45 +9,57 @@ using System.Threading.Tasks;
 
 namespace CpuUsageReaderApp
 {
-    public class ImageCreator : IDisposable
+    public class Icons : IDisposable
     {
         Icon[] _icons;
-        public ImageCreator()
+        public Icons(string font, int fontsize, string fontstyle, string background, string foreground)
         {
-            _icons = new Icon[100];
+            _icons = new Icon[101];
             for(int i = 0; i < _icons.Length; i++)
             {
-                _icons[i] = CreateIcon((i + 1).ToString());
+                _icons[i] = CreateIcon((i).ToString(), font, fontsize, fontstyle, background, foreground);
             }
         }
         public Icon GetIcon(int number)
         {
-            number -= 1;
-            if(number > 0 && number < _icons.Length)
+            if(number >= 0 && number <= _icons.Length)
             {
                 return _icons[number];
             }
             return _icons[0];
         }
 
-        static Icon CreateIcon(string number)
+        static Icon CreateIcon(string number, string fontStr, int fontsize, string fontstyle, string backgroundStr, string foregroundStr)
         {
-            using (Font font = new Font("Consolas", 21, FontStyle.Bold))
+            FontStyle style = (FontStyle)Enum.Parse(typeof(FontStyle), fontstyle);
+            Color background;
+            if (backgroundStr.Equals("Transparent", StringComparison.OrdinalIgnoreCase))
+            {
+                background = Color.FromArgb(0, 0, 0, 0);
+            }
+            else
+            {
+                background = ColorTranslator.FromHtml(backgroundStr);
+            }
+            
+            Color foreground = ColorTranslator.FromHtml(foregroundStr);
+            
+            using (Font font = new Font(fontStr, fontsize, style))
             using (Image img = new Bitmap(32, 32))
             using (Graphics graphics = Graphics.FromImage(img))
-            using (Brush brush = new SolidBrush(Color.Black))
+            using (Brush brush = new SolidBrush(foreground))
             {
                 float x;
                 if (number.Length > 1)
                 {
-                    x = -4;
+                    x = -5;
                 }
                 else
                 {
                     x = 2;
                 }
 
-                graphics.Clear(Color.White);
+                graphics.Clear(background);
                 graphics.DrawString(number, font, brush, x, 0);
                 graphics.Save();
                 return Icon.FromHandle((img as Bitmap).GetHicon()) as Icon;
@@ -74,7 +86,7 @@ namespace CpuUsageReaderApp
             }
         }
 
-        ~ImageCreator()
+        ~Icons()
         {
             Dispose(false);
         }
