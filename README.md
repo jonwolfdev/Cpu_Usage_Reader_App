@@ -14,3 +14,6 @@ Using performance counter to get `% Processor Time` and updating at an interval 
 # Start when windows start
 Follow this guide: https://support.microsoft.com/en-us/help/4026268/windows-10-change-startup-apps
 Basically create a shortcut and put in: `shell:startup` (Windows+R)
+
+# This app uses work from:
+See NOTICE.txt file
